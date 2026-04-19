@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantix Agency | Media Buying & Social Media Management</title>
+  <meta name="description" content="Quantix Agency, agence digitale spécialisée en media buying et management des réseaux sociaux." />
+  <meta name="theme-color" content="#0b0c0f" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0a0b0e;
+      --bg-soft:#111318;
+      --panel:rgba(255,255,255,.04);
+      --panel-strong:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.08);
+      --text:#f5efe6;
+      --muted:#b9af9f;
+      --gold:#d6bc84;
+      --gold-deep:#a8874f;
+      --shadow:0 18px 60px rgba(0,0,0,.42);
+      --radius:26px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter','Cairo',sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(214,188,132,.10), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(214,188,132,.07), transparent 24%),
+        linear-gradient(180deg, #0a0b0e 0%, #090a0d 100%);
+      color:var(--text);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    body.ar{
+      direction:rtl;
+      font-family:'Cairo','Inter',sans-serif;
+    }
+
+    body.en, body.fr{
+      direction:ltr;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px), var(--max));margin:auto}
+    .section{padding:90px 0}
+    .muted{color:var(--muted)}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:all .7s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(10,11,14,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      padding:16px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(214,188,132,.20), rgba(255,255,255,.03));
+      border:1px solid rgba(214,188,132,.28);
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      font-weight:800;
+      box-shadow:var(--shadow);
+      font-size:1.05rem;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.97rem;
+    }
+
+    .nav-links a:hover{color:var(--text)}
+
+    .lang-switcher{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .lang-btn{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.25s ease;
+      font-weight:700;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover{
+      background:linear-gradient(135deg, var(--gold-deep), var(--gold));
+      color:#111216;
+      border-color:transparent;
+    }
+
+    .hero{
+      padding:95px 0 55px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy,
+    .hero-side{
+      border:1px solid var(--stroke);
+      border-radius:32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy{
+      padding:38px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid rgba(214,188,132,.24);
+      background:rgba(214,188,132,.08);
+      color:var(--gold);
+      font-size:.9rem;
+      margin-bottom:18px;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2.4rem, 6vw, 5rem);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      max-width:700px;
+    }
+
+    .hero-subline{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-weight:700;
+      font-size:.96rem;
+      letter-spacing:.04em;
+      text-transform:none;
+    }
+
+    .hero-text{
+      margin:0 0 22px;
+      max-width:620px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .hero-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 28px;
+    }
+
+    .hero-tag{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      color:var(--text);
+      font-size:.9rem;
+      font-weight:600;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:16px;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid transparent;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold-deep), var(--gold));
+      color:#111216;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      border-color:var(--stroke);
+    }
+
+    .hero-side{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-side::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.9), transparent 88%);
+      opacity:.35;
+    }
+
+    .side-top,
+    .side-bottom{
+      position:relative;
+      z-index:1;
+    }
+
+    .side-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      border-radius:24px;
+      padding:22px;
+    }
+
+    .side-label{
+      display:block;
+      color:var(--gold);
+      font-size:.82rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .side-title{
+      margin:0 0 10px;
+      font-size:1.8rem;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .side-text{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .mini-metrics{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .metric{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .metric strong{
+      display:block;
+      color:var(--text);
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .metric span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.8rem, 3vw, 2.8rem);
+      letter-spacing:-.03em;
+    }
+
+    .section-head p{
+      margin:0;
+      max-width:620px;
+      color:var(--muted);
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:1.2rem;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+
+    .about-text{
+      color:var(--muted);
+      max-width:780px;
+      font-size:1rem;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .service-card{
+      padding:30px;
+    }
+
+    .service-tag{
+      color:var(--gold);
+      font-size:.84rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .service-card h3{
+      margin:.7rem 0 .55rem;
+      font-size:1.35rem;
+    }
+
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .list-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .bullet{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:9px;
+      background:linear-gradient(135deg, var(--gold-deep), var(--gold));
+      flex:0 0 auto;
+    }
+
+    .socials{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .social{
+      padding:12px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      transition:.25s ease;
+    }
+
+    .social:hover{
+      transform:translateY(-2px);
+      border-color:rgba(214,188,132,.26);
+    }
+
+    .footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:28px 0 42px;
+      color:var(--muted);
+      text-align:center;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 1024px){
+      .hero-grid,
+      .services-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 740px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .hero{
+        padding-top:72px;
+      }
+
+      .hero-copy,
+      .hero-side{
+        padding:24px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .mini-metrics{
+        grid-template-columns:1fr;
+      }
+
+      .section{
+        padding:72px 0;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body class="fr">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#accueil" class="brand">
+        <span class="brand-mark">Q</span>
+        <span>Quantix Agency</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#accueil" data-i18n="navHome">Accueil</a>
+        <a href="#apropos" data-i18n="navAbout">À propos</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow" data-i18n="eyebrow">Agence digitale</div>
+          <h1 data-i18n="heroTitle">Une stratégie claire pour faire grandir votre marque</h1>
+          <p class="hero-subline" data-i18n="slogan">Clear strategy. Strong presence. Real results.</p>
+          <p class="hero-text" data-i18n="heroText">Media buying et management des réseaux sociaux, avec une approche simple, moderne et cohérente.</p>
+
+          <div class="hero-tags">
+            <span class="hero-tag" data-i18n="tag1">Media Buying</span>
+            <span class="hero-tag" data-i18n="tag2">Management des réseaux sociaux</span>
+            <span class="hero-tag" data-i18n="tag3">Visibilité digitale</span>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/212680202926" target="_blank" rel="noopener" data-i18n="heroBtn1">Start your journey with us</a>
+            <a class="btn btn-secondary" href="#services" data-i18n="heroBtn2">Voir les services</a>
+          </div>
+        </div>
+
+        <div class="hero-side reveal">
+          <div class="side-top">
+            <div class="side-card">
+              <span class="side-label" data-i18n="visualLabel">Quantix Agency</span>
+              <h3 class="side-title" data-i18n="visualTitle">Simple. Moderne. Efficace.</h3>
+              <p class="side-text" data-i18n="visualText">Une présence digitale claire et bien organisée.</p>
+            </div>
+          </div>
+
+          <div class="side-bottom">
+            <div class="mini-metrics">
+              <div class="metric">
+                <strong data-i18n="metric1Title">Media Buying</strong>
+                <span data-i18n="metric1Text">Campagnes ciblées</span>
+              </div>
+              <div class="metric">
+                <strong data-i18n="metric2Title">Social Media</strong>
+                <span data-i18n="metric2Text">Présence cohérente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apropos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 data-i18n="aboutTitle">À propos</h2>
+          </div>
+          <p data-i18n="aboutIntro">Une agence pensée pour les marques qui veulent plus de clarté et plus d’impact.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <h3 data-i18n="aboutCardTitle">About us</h3>
+            <p class="about-text" data-i18n="aboutCardText">
+              Quantix Agency accompagne les marques qui veulent améliorer leur présence digitale.
+              Nous proposons des services centrés sur le media buying et le management des réseaux sociaux.
+              Notre objectif est de créer une communication claire, cohérente et professionnelle.
+              Nous privilégions la simplicité, l’organisation et les résultats.
+              Chaque projet commence par une compréhension réelle du besoin du client.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 data-i18n="servicesTitle">Services</h2>
+          </div>
+          <p data-i18n="servicesIntro">L’essentiel, bien organisé.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="card service-card reveal">
+            <span class="service-tag" data-i18n="serviceTag1">Service principal</span>
+            <h3 data-i18n="serviceTitle1">Media Buying</h3>
+            <p data-i18n="serviceText1">Création et optimisation de campagnes publicitaires.</p>
+          </div>
+
+          <div class="card service-card reveal">
+            <span class="service-tag" data-i18n="serviceTag2">Service complémentaire</span>
+            <h3 data-i18n="serviceTitle2">Management des réseaux sociaux</h3>
+            <p data-i18n="serviceText2">Gestion claire et cohérente de votre présence en ligne.</p>
+          </div>
+
+          <div class="card service-card reveal">
+            <span class="service-tag" data-i18n="serviceTag3">Premier contact</span>
+            <h3 data-i18n="serviceTitle3">Échange simple</h3>
+            <p data-i18n="serviceText3">WhatsApp ou Instagram pour commencer rapidement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 data-i18n="contactTitle">Contact</h2>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card reveal">
+            <h3 data-i18n="contactCardTitle">Parlons de votre projet</h3>
+
+            <div class="contact-list">
+              <div class="list-item">
+                <span class="bullet"></span>
+                <span><strong data-i18n="phoneLabel">Téléphone / WhatsApp :</strong> <a href="https://wa.me/212680202926" target="_blank" rel="noopener">0680202926</a></span>
+              </div>
+
+              <div class="list-item">
+                <span class="bullet"></span>
+                <span><strong data-i18n="emailLabel">Email :</strong> <a href="mailto:hello.quantix.agency@gmail.com">hello.quantix.agency@gmail.com</a></span>
+              </div>
+
+              <div class="list-item">
+                <span class="bullet"></span>
+                <span><strong data-i18n="instagramLabel">Instagram :</strong> <a href="https://www.instagram.com/quantix_agency?igsh=MWV3dXRyYWd2b2JxNA==" target="_blank" rel="noopener">@quantix_agency</a></span>
+              </div>
+            </div>
+
+            <div class="socials">
+              <a class="social" href="https://wa.me/212680202926" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="social" href="https://www.instagram.com/quantix_agency?igsh=MWV3dXRyYWd2b2JxNA==" target="_blank" rel="noopener">Instagram</a>
+              <a class="social" href="mailto:hello.quantix.agency@gmail.com">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span data-i18n="footerText">© 2026 Quantix Agency. Tous droits réservés.</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        navHome:"Accueil",
+        navAbout:"À propos",
+        navServices:"Services",
+        navContact:"Contact",
+        eyebrow:"Agence digitale",
+        heroTitle:"Une stratégie claire pour faire grandir votre marque",
+        slogan:"Clear strategy. Strong presence. Real results.",
+        heroText:"Media buying et management des réseaux sociaux, avec une approche simple, moderne et cohérente.",
+        tag1:"Media Buying",
+        tag2:"Management des réseaux sociaux",
+        tag3:"Visibilité digitale",
+        heroBtn1:"Start your journey with us",
+        heroBtn2:"Voir les services",
+        visualLabel:"Quantix Agency",
+        visualTitle:"Simple. Moderne. Efficace.",
+        visualText:"Une présence digitale claire et bien organisée.",
+        metric1Title:"Media Buying",
+        metric1Text:"Campagnes ciblées",
+        metric2Title:"Social Media",
+        metric2Text:"Présence cohérente",
+        aboutTitle:"À propos",
+        aboutIntro:"Une agence pensée pour les marques qui veulent plus de clarté et plus d’impact.",
+        aboutCardTitle:"About us",
+        aboutCardText:"Quantix Agency accompagne les marques qui veulent améliorer leur présence digitale. Nous proposons des services centrés sur le media buying et le management des réseaux sociaux. Notre objectif est de créer une communication claire, cohérente et professionnelle. Nous privilégions la simplicité, l’organisation et les résultats. Chaque projet commence par une compréhension réelle du besoin du client.",
+        servicesTitle:"Services",
+        servicesIntro:"L’essentiel, bien organisé.",
+        serviceTag1:"Service principal",
+        serviceTitle1:"Media Buying",
+        serviceText1:"Création et optimisation de campagnes publicitaires.",
+        serviceTag2:"Service complémentaire",
+        serviceTitle2:"Management des réseaux sociaux",
+        serviceText2:"Gestion claire et cohérente de votre présence en ligne.",
+        serviceTag3:"Premier contact",
+        serviceTitle3:"Échange simple",
+        serviceText3:"WhatsApp ou Instagram pour commencer rapidement.",
+        contactTitle:"Contact",
+        contactCardTitle:"Parlons de votre projet",
+        phoneLabel:"Téléphone / WhatsApp :",
+        emailLabel:"Email :",
+        instagramLabel:"Instagram :",
+        footerText:"© 2026 Quantix Agency. Tous droits réservés."
+      },
+      en: {
+        navHome:"Home",
+        navAbout:"About",
+        navServices:"Services",
+        navContact:"Contact",
+        eyebrow:"Digital agency",
+        heroTitle:"A clear strategy to grow your brand",
+        slogan:"Clear strategy. Strong presence. Real results.",
+        heroText:"Media buying and social media management with a simple, modern and consistent approach.",
+        tag1:"Media Buying",
+        tag2:"Social Media Management",
+        tag3:"Digital Visibility",
+        heroBtn1:"Start your journey with us",
+        heroBtn2:"View services",
+        visualLabel:"Quantix Agency",
+        visualTitle:"Simple. Modern. Effective.",
+        visualText:"A clear and well-organized digital presence.",
+        metric1Title:"Media Buying",
+        metric1Text:"Targeted campaigns",
+        metric2Title:"Social Media",
+        metric2Text:"Consistent presence",
+        aboutTitle:"About",
+        aboutIntro:"An agency built for brands that want more clarity and more impact.",
+        aboutCardTitle:"About us",
+        aboutCardText:"Quantix Agency supports brands that want to improve their digital presence. We offer services focused on media buying and social media management. Our goal is to create clear, consistent and professional communication. We value simplicity, organization and results. Every project starts with a real understanding of the client’s needs.",
+        servicesTitle:"Services",
+        servicesIntro:"The essentials, well organized.",
+        serviceTag1:"Main service",
+        serviceTitle1:"Media Buying",
+        serviceText1:"Creation and optimization of ad campaigns.",
+        serviceTag2:"Complementary service",
+        serviceTitle2:"Social Media Management",
+        serviceText2:"Clear and consistent management of your online presence.",
+        serviceTag3:"First contact",
+        serviceTitle3:"Simple Exchange",
+        serviceText3:"WhatsApp or Instagram to get started quickly.",
+        contactTitle:"Contact",
+        contactCardTitle:"Let’s talk about your project",
+        phoneLabel:"Phone / WhatsApp:",
+        emailLabel:"Email:",
+        instagramLabel:"Instagram:",
+        footerText:"© 2026 Quantix Agency. All rights reserved."
+      },
+      ar: {
+        navHome:"الرئيسية",
+        navAbout:"من نحن",
+        navServices:"الخدمات",
+        navContact:"اتصل بنا",
+        eyebrow:"وكالة رقمية",
+        heroTitle:"استراتيجية واضحة لتنمية علامتك التجارية",
+        slogan:"استراتيجية واضحة. حضور قوي. نتائج حقيقية.",
+        heroText:"Media buying وإدارة مواقع التواصل الاجتماعي بأسلوب بسيط وعصري ومتناسق.",
+        tag1:"Media Buying",
+        tag2:"إدارة مواقع التواصل الاجتماعي",
+        tag3:"الظهور الرقمي",
+        heroBtn1:"ابدأ رحلتك معنا",
+        heroBtn2:"اكتشف الخدمات",
+        visualLabel:"Quantix Agency",
+        visualTitle:"بسيط. عصري. فعّال.",
+        visualText:"حضور رقمي واضح ومنظم.",
+        metric1Title:"Media Buying",
+        metric1Text:"حملات موجهة",
+        metric2Title:"Social Media",
+        metric2Text:"حضور متناسق",
+        aboutTitle:"من نحن",
+        aboutIntro:"وكالة موجهة للعلامات التجارية التي تريد مزيدًا من الوضوح والتأثير.",
+        aboutCardTitle:"من نحن",
+        aboutCardText:"تدعم Quantix Agency العلامات التجارية التي تريد تحسين حضورها الرقمي. نحن نقدم خدمات تركز على media buying وإدارة مواقع التواصل الاجتماعي. هدفنا هو بناء تواصل واضح ومتناسق واحترافي. نؤمن بالبساطة والتنظيم والنتائج. وكل مشروع يبدأ بفهم حقيقي لاحتياجات العميل.",
+        servicesTitle:"الخدمات",
+        servicesIntro:"الأساسيات فقط، بشكل منظم.",
+        serviceTag1:"الخدمة الرئيسية",
+        serviceTitle1:"Media Buying",
+        serviceText1:"إنشاء وتحسين الحملات الإعلانية.",
+        serviceTag2:"خدمة مكملة",
+        serviceTitle2:"إدارة مواقع التواصل الاجتماعي",
+        serviceText2:"إدارة واضحة ومتناسقة لحضورك الرقمي.",
+        serviceTag3:"الخطوة الأولى",
+        serviceTitle3:"تواصل بسيط",
+        serviceText3:"واتساب أو إنستغرام للبدء بسرعة.",
+        contactTitle:"اتصل بنا",
+        contactCardTitle:"لنتحدث عن مشروعك",
+        phoneLabel:"الهاتف / واتساب:",
+        emailLabel:"البريد الإلكتروني:",
+        instagramLabel:"إنستغرام:",
+        footerText:"© 2026 Quantix Agency. جميع الحقوق محفوظة."
+      }
+    };
+
+    function setLanguage(lang){
+      document.documentElement.lang = lang;
+      document.body.className = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
